@@ -67,7 +67,7 @@ namespace Winform_Course
             //{
             //    btnOK.Enabled = true;
             //}));
-
+            var obj=Invoke(action);
             var async = BeginInvoke(action);
             while (async.IsCompleted==false)
             {
