@@ -67,7 +67,7 @@ namespace Winform_Course
             //{
             //    btnOK.Enabled = true;
             //}));
-            var obj=Invoke(action);
+            //var obj=Invoke(action);
             var async = BeginInvoke(action);
             while (async.IsCompleted==false)
             {
@@ -117,6 +117,12 @@ namespace Winform_Course
             {
                 dataGridView1.DataSource = table;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CodeRunForm f = new CodeRunForm();
+            f.ShowDialog();
         }
     }
 }
