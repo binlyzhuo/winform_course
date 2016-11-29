@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Winform_Course
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         DataTable table;
         private int currentIndex = 0;
         private int max = 10000;
-        public Form1()
+        public Main()
         {
             InitializeComponent();
         }
@@ -121,7 +121,9 @@ namespace Winform_Course
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CodeRunForm f = new CodeRunForm();
+            //CodeRunForm f = new CodeRunForm();
+            //f.ShowDialog();
+            AssemblyForm f = new AssemblyForm();
             f.ShowDialog();
         }
     }
