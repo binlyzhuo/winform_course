@@ -186,5 +186,79 @@ namespace AsyncUI
                 Thread.Sleep(50);
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Thread t1 = new Thread(ThreadMethod1);
+            Thread t2 = new Thread(ThreadMetod2);
+
+            t1.Start();
+            t2.Start();
+        }
+
+        void ThreadMethod1()
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                SetLabelTxt("Thread 1 is running");
+                Thread.Sleep(50);
+            }
+        }
+
+        void ThreadMetod2()
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                SetLabelTxt("Thread 2 is running");
+                Thread.Sleep(50);
+            }
+        }
+
+        void ThreadMethod3(object param)
+        {
+            ThreadData data = (ThreadData)param;
+            for (int i = 0; i < 20; i++)
+            {
+                SetLabelTxt(i.ToString()+"Thread 3 is running,Message:"+data.Message);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Thread t = new Thread(ThreadMethod3);
+            t.IsBackground = true;
+            t.Start(new ThreadData() {Message = "Hello World!!"});
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                ThreadPool.UnsafeQueueUserWorkItem(WaitCallBackMethod, i);
+            }
+        }
+
+        void WaitCallBackMethod(object param)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                SetLabelTxt(string.Format("Thread {0} is running",param));
+                Thread.Sleep(1000);
+            }
+        }
+
+        void MaxThreads()
+        {
+            int workerThreads;
+            int ioThreads;
+
+            ThreadPool.GetMaxThreads(out workerThreads,out ioThreads);
+            ThreadPool.GetMinThreads(out workerThreads,out ioThreads);
+        }
+    }
+
+    struct ThreadData
+    {
+        public string Message;
     }
 }
