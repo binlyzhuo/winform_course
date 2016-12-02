@@ -24,24 +24,10 @@ namespace AsyncUI
 
         string DelegateMethod(int ms)
         {
-            if (label1.InvokeRequired)
-            {
-                //label1.Invoke(new Delegate(MyDelegate),new []{ms});
-                Invoke(new MyDelegate(DelegateMethod), new object[] {ms});
-            }
-            else
-            {
-                label1.Text = ms.ToString();
-            }
-
-            //Func<int, string> f = (num) =>
-            //{
-            //    return num.ToString();
-            //};
-
-            //string s = f(123);
-
-            return ms.ToString();
+            SetLabelTxt("Takes a while started!");
+            Thread.Sleep(ms);
+            SetLabelTxt("Takes a while completed!");
+            return "Hello World!!";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -50,16 +36,23 @@ namespace AsyncUI
             //Task t = new Task(Test);
             //t.Start();
 
+            button1.Enabled = false;
+
             MyDelegate myDel = AsyncMethod;
             IAsyncResult rs = myDel.BeginInvoke(10000, null, null);
             while (!rs.IsCompleted)
             {
-                label1.Text = "...";
-                Thread.Sleep(10);
+                //label1.Text = "...";
+                //Thread.Sleep(10);
             }
 
             string res = myDel.EndInvoke(rs);
             label1.Text = res;
+
+            BeginInvoke(new MethodInvoker(delegate()
+            {
+                button1.Enabled = true;
+            }));
         }
 
         void Test()
@@ -95,6 +88,103 @@ namespace AsyncUI
             val *= 2;
             await Task.Delay(TimeSpan.FromSeconds(1));
             Trace.WriteLine(val);
+        }
+
+        private delegate void SetLabelText(string msg);
+
+        private void SetLabelTxt(string msg)
+        {
+            if (label1.InvokeRequired)
+            {
+                Invoke(new SetLabelText(SetLabelTxt), new object[] {msg});
+            }
+            else
+            {
+                label1.Text = msg;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Task task = new Task(LoadingData);
+            task.Start();
+            //LoadingData();
+            label1.Text = "Complete!!";
+        }
+
+        private void LoadingData()
+        {
+            SetLabelTxt("BEGIN!!");
+            //Thread.Sleep(10000);
+            SetLabelTxt("OK!!");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //AsyncMethodTest();
+            //SetLabelTxt("TId:"+Thread.CurrentThread.ManagedThreadId.ToString());
+            label1.Text = "tid:"+Thread.CurrentThread.ManagedThreadId.ToString();
+            //Thread.Sleep(4000);
+            Task t = new Task(Imp3);
+            t.Start();
+            label1.Text = "COMPLETE!!";
+        }
+
+        void AsyncMethodTest()
+        {
+            label1.Text = "I am running...";
+        }
+
+        void Imp1()
+        {
+            MyDelegate dl = DelegateMethod;
+            IAsyncResult ar = dl.BeginInvoke(5000, null, null);
+            while (!ar.IsCompleted)
+            {
+                //SetLabelTxt("."+DateTime.Now.Millisecond);
+                Thread.Sleep(1000);
+                SetLabelTxt(Thread.CurrentThread.ManagedThreadId.ToString());
+            }
+
+            string rs = dl.EndInvoke(ar);
+
+            //SetLabelTxt("result:"+rs);
+        }
+
+        void Imp2()
+        {
+            MyDelegate dl = DelegateMethod;
+            IAsyncResult ar = dl.BeginInvoke(5000,null,null);
+
+            while (true)
+            {
+                SetLabelTxt(DateTime.Now.Millisecond.ToString());
+                if (ar.AsyncWaitHandle.WaitOne(50))
+                {
+                    SetLabelTxt("Can get the result now!");
+                    break;
+                }
+            }
+
+            string rs = dl.EndInvoke(ar);
+            SetLabelTxt("result:"+rs);
+        }
+
+        void Imp3()
+        {
+            MyDelegate dl = DelegateMethod;
+            dl.BeginInvoke(5000, new AsyncCallback(ar =>
+            {
+                string rs = dl.EndInvoke(ar);
+                SetLabelTxt("result:"+rs);
+                MessageBox.Show("Complete!!");
+            }), null);
+
+            for (int i = 0; i < 100; i++)
+            {
+                SetLabelTxt("ff"+DateTime.Now.Millisecond.ToString());
+                Thread.Sleep(50);
+            }
         }
     }
 }
