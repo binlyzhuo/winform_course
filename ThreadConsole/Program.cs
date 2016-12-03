@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -76,6 +77,13 @@ namespace ThreadConsole
         static void ThreadPriorty()
         {
             Console.WriteLine("Current thread priority :{0}",Thread.CurrentThread.Priority);
+            Console.WriteLine("Running on all cores avaiable");
+            RunThreads();
+
+            Thread.Sleep(TimeSpan.FromSeconds(2));
+            Console.WriteLine("Running on a single core");
+            Process.GetCurrentProcess().ProcessorAffinity = new IntPtr(1);
+            RunThreads();
         }
 
         static void RunThreads()
@@ -83,6 +91,18 @@ namespace ThreadConsole
             var sample = new ThreadSample();
             var threadOne = new Thread(sample.CountNumber);
             threadOne.Name = "ThreadOne";
+
+            var threadTwo = new Thread(sample.CountNumber);
+            threadTwo.Name = "ThreadTwo";
+
+            threadOne.Priority = ThreadPriority.Highest;
+            threadTwo.Priority = ThreadPriority.Lowest;
+
+            threadOne.Start();
+            threadTwo.Start();
+
+            Thread.Sleep(TimeSpan.FromSeconds(2));
+            sample.Stop();
         }
     }
 }
