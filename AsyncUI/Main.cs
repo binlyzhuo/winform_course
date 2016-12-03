@@ -289,6 +289,33 @@ namespace AsyncUI
                 Thread.Sleep(500);
             }
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Task t1 = new Task(FirstTaskMethod);
+            Task t2 = t1.ContinueWith(SecondTaskMethod,TaskContinuationOptions.OnlyOnRanToCompletion);
+            t1.Start();
+
+            for (int i = 0; i < 20; i++)
+            {
+                SetLabelTxt("Main thread is running...");
+                Thread.Sleep(200);
+            }
+        }
+
+        void FirstTaskMethod()
+        {
+            SetLabelTxt(string.Format("Task {0} is doing something.",Task.CurrentId));
+            Thread.Sleep(20);
+        }
+
+        void SecondTaskMethod(Task task)
+        {
+            SetLabelTxt("Last task is finished!");
+            Thread.Sleep(200);
+            SetLabelTxt(string.Format("Task {0} is doing something.", Task.CurrentId));
+            Thread.Sleep(20);
+        }
     }
 
     struct ThreadData
