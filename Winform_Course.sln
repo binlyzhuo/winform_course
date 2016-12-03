@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeContractSample", "CodeC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncUI", "AsyncUI\AsyncUI.csproj", "{6633CF4C-9D48-4E57-AFF2-571DC25DB1E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadConsole", "ThreadConsole\ThreadConsole.csproj", "{2F8CB13E-3206-43A4-8D0E-A7EA7E0991FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6633CF4C-9D48-4E57-AFF2-571DC25DB1E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6633CF4C-9D48-4E57-AFF2-571DC25DB1E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6633CF4C-9D48-4E57-AFF2-571DC25DB1E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F8CB13E-3206-43A4-8D0E-A7EA7E0991FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F8CB13E-3206-43A4-8D0E-A7EA7E0991FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F8CB13E-3206-43A4-8D0E-A7EA7E0991FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F8CB13E-3206-43A4-8D0E-A7EA7E0991FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
