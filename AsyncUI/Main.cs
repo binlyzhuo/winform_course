@@ -255,6 +255,40 @@ namespace AsyncUI
             ThreadPool.GetMaxThreads(out workerThreads,out ioThreads);
             ThreadPool.GetMinThreads(out workerThreads,out ioThreads);
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //Task t = new Task(TaskMwthodWithParameter,"Hello World!!");
+            //t.Start();
+
+            TaskFactory f = new TaskFactory();
+            f.StartNew(TaskMethod);
+
+            Task.Factory.StartNew(TaskMwthodWithParameter, "OK");
+
+            for (int i = 0; i < 10; i++)
+            {
+                SetLabelTxt("Running in main thread!!");
+            }
+        }
+
+        void TaskMethod()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                SetLabelTxt(string.Format("Running in a task.TaskID is {0}",Task.CurrentId));
+                Thread.Sleep(500);
+            }
+        }
+
+        void TaskMwthodWithParameter(object param)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                SetLabelTxt(string.Format("Running in a task.TaskID is {0},Param is {1}", Task.CurrentId,param));
+                Thread.Sleep(500);
+            }
+        }
     }
 
     struct ThreadData
