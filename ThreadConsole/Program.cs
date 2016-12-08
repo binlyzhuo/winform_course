@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace ThreadConsole
 {
@@ -13,7 +14,8 @@ namespace ThreadConsole
         {
           
             Console.WriteLine("Starting Program...");
-            ThreadPriorty();
+            //ThreadPriorty();
+            AsyncTest();
             Console.ReadLine();
         }
 
@@ -103,6 +105,34 @@ namespace ThreadConsole
 
             Thread.Sleep(TimeSpan.FromSeconds(2));
             sample.Stop();
+        }
+
+
+        static async Task<int> MyMethod()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine("异步执行"+i.ToString()+"..");
+                await TaskEx.Delay(1000);
+            }
+
+            return 0;
+        }
+
+        static async void AsyncMethod()
+        {
+            Console.WriteLine("开始异步代码");
+            var rs = await MyMethod();
+            Console.WriteLine("异步代码执行完毕");
+        }
+
+        static void AsyncTest()
+        {
+            Console.WriteLine("主线程测试开始");
+            AsyncMethod();
+            Thread.Sleep(1000);
+            Console.WriteLine("主线程测试完毕");
+            
         }
     }
 }
