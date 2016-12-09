@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IOProject", "IOProject\IOPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileProperties", "FileProperties\FileProperties.csproj", "{1B8AD180-72DC-431B-9061-C0126FCA8418}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetConsole", "NetConsole\NetConsole.csproj", "{57296A1C-005F-4EED-8C56-95A14414071F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{1B8AD180-72DC-431B-9061-C0126FCA8418}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B8AD180-72DC-431B-9061-C0126FCA8418}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B8AD180-72DC-431B-9061-C0126FCA8418}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57296A1C-005F-4EED-8C56-95A14414071F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57296A1C-005F-4EED-8C56-95A14414071F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57296A1C-005F-4EED-8C56-95A14414071F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57296A1C-005F-4EED-8C56-95A14414071F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
