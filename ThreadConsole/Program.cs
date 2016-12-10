@@ -15,7 +15,8 @@ namespace ThreadConsole
           
             Console.WriteLine("Starting Program...");
             //ThreadPriorty();
-            AsyncTest();
+            //AsyncTest();
+            CallerWithAync();
             Console.ReadLine();
         }
 
@@ -133,6 +134,26 @@ namespace ThreadConsole
             Thread.Sleep(1000);
             Console.WriteLine("主线程测试完毕");
             
+        }
+
+        static string Greeting(string name)
+        {
+            Thread.Sleep(3000);
+            return string.Format("Hello,{0}",name);
+        }
+
+        static Task<string> GreetingAync(string name)
+        {
+            return TaskEx.Run<string>(() =>
+            {
+                return Greeting(name);
+            });
+        }
+
+        async static void CallerWithAync()
+        {
+            string result = await GreetingAync("Bin");
+            Console.WriteLine(result);
         }
     }
 }
