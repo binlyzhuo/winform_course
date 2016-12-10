@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileProperties", "FilePrope
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetConsole", "NetConsole\NetConsole.csproj", "{57296A1C-005F-4EED-8C56-95A14414071F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncForm", "AsyncForm\AsyncForm.csproj", "{C4379EA0-3EA4-47D2-964A-C2C0A8E87D23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{57296A1C-005F-4EED-8C56-95A14414071F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57296A1C-005F-4EED-8C56-95A14414071F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57296A1C-005F-4EED-8C56-95A14414071F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4379EA0-3EA4-47D2-964A-C2C0A8E87D23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4379EA0-3EA4-47D2-964A-C2C0A8E87D23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4379EA0-3EA4-47D2-964A-C2C0A8E87D23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4379EA0-3EA4-47D2-964A-C2C0A8E87D23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
