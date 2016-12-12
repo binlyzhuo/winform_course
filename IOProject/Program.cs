@@ -10,6 +10,9 @@ namespace IOProject
     {
         static void Main(string[] args)
         {
+            //http://www.cnblogs.com/webhome/p/6164139.html
+            Guid g = default(Guid);
+
             Console.WriteLine("File Operation");
             FileInfo myFile = new FileInfo(@"F:\eclipse\1.txt");
             bool isExist = myFile.Exists;
