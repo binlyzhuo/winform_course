@@ -320,12 +320,17 @@ namespace AsyncUI
 
         private async void asyncBtn_Click(object sender, EventArgs e)
         {
-            int length = await AccessTheWebAsync();
-            label1.Text = "length:"+length;
+            //int length = await AccessTheWebAsync();
+            //label1.Text = "length:"+length;
+
+            label1.Text = "Loading";
+            await Task.Delay(2000);
+            label1.Text = "Loading Complete!!";
         }
 
         async Task<int> AccessTheWebAsync()
         {
+            //https://www.zhihu.com/question/30601778
             HttpClient client = new HttpClient();
             string urlContent = await client.GetStringAsync("http://www.baidu.com");
             
