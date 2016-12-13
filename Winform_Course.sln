@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winform_Course", "Winform_Course\Winform_Course.csproj", "{BD8EB4EE-C8E3-4541-A019-DE375B237AAA}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetConsole", "NetConsole\NetConsole.csproj", "{57296A1C-005F-4EED-8C56-95A14414071F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncForm", "AsyncForm\AsyncForm.csproj", "{C4379EA0-3EA4-47D2-964A-C2C0A8E87D23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectorDemo", "ReflectorDemo\ReflectorDemo.csproj", "{5B0568FB-300E-4D56-98B2-FBE8F6435155}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{C4379EA0-3EA4-47D2-964A-C2C0A8E87D23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4379EA0-3EA4-47D2-964A-C2C0A8E87D23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4379EA0-3EA4-47D2-964A-C2C0A8E87D23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B0568FB-300E-4D56-98B2-FBE8F6435155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B0568FB-300E-4D56-98B2-FBE8F6435155}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B0568FB-300E-4D56-98B2-FBE8F6435155}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B0568FB-300E-4D56-98B2-FBE8F6435155}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
