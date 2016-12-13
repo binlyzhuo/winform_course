@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -315,6 +316,20 @@ namespace AsyncUI
             Thread.Sleep(200);
             SetLabelTxt(string.Format("Task {0} is doing something.", Task.CurrentId));
             Thread.Sleep(20);
+        }
+
+        private async void asyncBtn_Click(object sender, EventArgs e)
+        {
+            int length = await AccessTheWebAsync();
+            label1.Text = "length:"+length;
+        }
+
+        async Task<int> AccessTheWebAsync()
+        {
+            HttpClient client = new HttpClient();
+            string urlContent = await client.GetStringAsync("http://www.baidu.com");
+            
+            return urlContent.Length;
         }
     }
 
