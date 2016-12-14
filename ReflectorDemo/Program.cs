@@ -25,11 +25,19 @@ namespace ReflectorDemo
                 Ids2 = new List<string>()
                 {
                     "456"
-                }
+                }, Param = new BaseParam()
             };
 
 
+            Type interfaceType = typeof (IBaseParam);
+            bool isIF = interfaceType.IsInterface;
+
             Type type = model.GetType();
+            bool isPrimitive = type.IsPrimitive;
+
+            bool isFromInterface = typeof(IBaseParam).IsAssignableFrom(typeof(BaseParam));
+
+
             //var ps = type.GetProperties();
 
             var ps = type.GetProperties();
@@ -38,6 +46,8 @@ namespace ReflectorDemo
             foreach (var p in ps)
             {
                 Console.WriteLine("PropertyName:{0},Value:{1}",p.Name,p.GetValue(model,null).ToString());
+                bool pt = p.GetType().IsClass;
+                bool isIntetface = p.GetType().IsInterface;
                 //p.SetValue(model.Params, "1001",null);
                 //Console.WriteLine("PropertyName:{0},Value:{1}", p.Name, p.GetValue(model.Params, null).ToString());
             }
@@ -54,11 +64,16 @@ namespace ReflectorDemo
         public BaseParam Params { set; get; }
 
         public List<string> Ids { set; get; }
-        public List<string> Ids2 { set; get; } 
+        public List<string> Ids2 { set; get; }
+
+        public IBaseParam Param { set; get; }
     }
 
-    public class BaseParam
+    public class BaseParam:IBaseParam
     {
         public string Keywords { set; get; }
     }
+
+    public interface IBaseParam
+    { }
 }
