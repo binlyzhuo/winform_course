@@ -59,7 +59,8 @@ namespace ReflectorDemo
                 Guid.NewGuid(),Guid.NewGuid()
             };
 
-            List<string> strList = guidIds.Select(g => g.ToString()).ToList();
+            var strList = guidIds.Select(g => g.ToString());
+            var str = string.Join("','", strList);
 
             Console.ReadLine();
         }
