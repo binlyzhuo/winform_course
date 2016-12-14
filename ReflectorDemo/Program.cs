@@ -17,21 +17,29 @@ namespace ReflectorDemo
                 Params = new BaseParam()
                 {
                     Keywords = "kk"
+                },
+                Ids = new List<string>()
+                {
+                    "123"
+                },
+                Ids2 = new List<string>()
+                {
+                    "456"
                 }
             };
 
 
-            Type type = model.Params.GetType();
+            Type type = model.GetType();
             //var ps = type.GetProperties();
 
-            var ps = type.GetProperties().Where(u=>u.PropertyType.FullName =="System.String").ToList();
-            var cs = type.GetProperties();
+            var ps = type.GetProperties();
+            var cs = type.GetProperty("list");
 
             foreach (var p in ps)
             {
-                Console.WriteLine("PropertyName:{0},Value:{1}",p.Name,p.GetValue(model.Params,null).ToString());
-                p.SetValue(model.Params, "1001",null);
-                Console.WriteLine("PropertyName:{0},Value:{1}", p.Name, p.GetValue(model.Params, null).ToString());
+                Console.WriteLine("PropertyName:{0},Value:{1}",p.Name,p.GetValue(model,null).ToString());
+                //p.SetValue(model.Params, "1001",null);
+                //Console.WriteLine("PropertyName:{0},Value:{1}", p.Name, p.GetValue(model.Params, null).ToString());
             }
 
             Console.ReadLine();
@@ -44,6 +52,9 @@ namespace ReflectorDemo
         public int Age { set; get; }
 
         public BaseParam Params { set; get; }
+
+        public List<string> Ids { set; get; }
+        public List<string> Ids2 { set; get; } 
     }
 
     public class BaseParam
