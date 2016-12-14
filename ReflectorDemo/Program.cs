@@ -25,11 +25,12 @@ namespace ReflectorDemo
                 Ids2 = new List<string>()
                 {
                     "456"
-                }, Param = new BaseParam()
+                },
+                Param = new BaseParam()
             };
 
 
-            Type interfaceType = typeof (IBaseParam);
+            Type interfaceType = typeof(IBaseParam);
             bool isIF = interfaceType.IsInterface;
 
             Type type = model.GetType();
@@ -45,12 +46,20 @@ namespace ReflectorDemo
 
             foreach (var p in ps)
             {
-                Console.WriteLine("PropertyName:{0},Value:{1}",p.Name,p.GetValue(model,null).ToString());
+                Console.WriteLine("PropertyName:{0},Value:{1}", p.Name, p.GetValue(model, null).ToString());
                 bool pt = p.GetType().IsClass;
                 bool isIntetface = p.GetType().IsInterface;
                 //p.SetValue(model.Params, "1001",null);
                 //Console.WriteLine("PropertyName:{0},Value:{1}", p.Name, p.GetValue(model.Params, null).ToString());
             }
+
+
+            List<Guid> guidIds = new List<Guid>()
+            {
+                Guid.NewGuid(),Guid.NewGuid()
+            };
+
+            List<string> strList = guidIds.Select(g => g.ToString()).ToList();
 
             Console.ReadLine();
         }
@@ -69,7 +78,7 @@ namespace ReflectorDemo
         public IBaseParam Param { set; get; }
     }
 
-    public class BaseParam:IBaseParam
+    public class BaseParam : IBaseParam
     {
         public string Keywords { set; get; }
     }
