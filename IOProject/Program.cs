@@ -39,6 +39,12 @@ namespace IOProject
 
             int zhCount = CheckGBKLen(strTemp);
             Console.WriteLine("汉字个数:{0}",zhCount);
+
+            char ch = 'A';
+            int ascII = ch;
+
+            char email = (char)64;
+            Console.WriteLine(email);
         }
 
         static int CheckGBKLen(string str)
