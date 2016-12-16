@@ -31,6 +31,15 @@ namespace LinqDemo
             {
                 Console.WriteLine(p.Name);
             });
+
+            var lsGet = list.Find(delegate(Person p)
+            {
+                return p.Age == 10;
+            });
+
+            var lsGet2 = list.Find(d => d.Gender);
+
+            list.ForEach(u=>Console.WriteLine(u.Name));
             Console.ReadLine();
         }
 
