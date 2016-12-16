@@ -7,6 +7,7 @@ namespace LinqDemo
 {
     class Program
     {
+        //http://blog.jobbole.com/102901/
         static void Main(string[] args)
         {
             //var result = GetResult();
