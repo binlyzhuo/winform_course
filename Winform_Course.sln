@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncForm", "AsyncForm\Asyn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectorDemo", "ReflectorDemo\ReflectorDemo.csproj", "{5B0568FB-300E-4D56-98B2-FBE8F6435155}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqDemo", "LinqDemo\LinqDemo.csproj", "{31130BF4-E11C-4B39-82BD-0B0C8909ECB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{5B0568FB-300E-4D56-98B2-FBE8F6435155}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B0568FB-300E-4D56-98B2-FBE8F6435155}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B0568FB-300E-4D56-98B2-FBE8F6435155}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31130BF4-E11C-4B39-82BD-0B0C8909ECB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31130BF4-E11C-4B39-82BD-0B0C8909ECB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31130BF4-E11C-4B39-82BD-0B0C8909ECB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31130BF4-E11C-4B39-82BD-0B0C8909ECB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

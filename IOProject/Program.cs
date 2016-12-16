@@ -12,9 +12,7 @@ namespace IOProject
         {
             //http://www.cnblogs.com/webhome/p/6164139.html
             Guid g = default(Guid);
-
             StringLength();
-
             Console.WriteLine("IO Complete!");
             Console.ReadLine();
         }
@@ -42,8 +40,9 @@ namespace IOProject
 
             char ch = 'A';
             int ascII = ch;
-
             char email = (char)64;
+
+
             Console.WriteLine(email);
         }
 
