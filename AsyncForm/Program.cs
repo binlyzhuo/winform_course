@@ -13,7 +13,25 @@ namespace AsyncForm
     {
         static void Main(string[] args)
         {
-            Application.Run(new AsyncForm());
+            //Application.Run(new AsyncForm());
+            PrintPageLength();
+            Console.ReadLine();
+        }
+
+        static async Task<int> GetPageLengthAsync(string url)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                Task<string> fetchNextTask = client.GetStringAsync(url);
+                int length = (await fetchNextTask).Length;
+                return length;
+            }
+        }
+
+        static void PrintPageLength()
+        {
+            Task<int> lengthTask = GetPageLengthAsync("Http://www.baidu.com");
+            Console.WriteLine(lengthTask.Result);
         }
     }
 
@@ -50,5 +68,18 @@ namespace AsyncForm
                 label.Text = text.Length.ToString();
             }
         }
+
+        async void DisplayWebSiteLength2(object sender, EventArgs args)
+        {
+            label.Text = "Fetching.....";
+            using (HttpClient client = new HttpClient())
+            {
+                Task<string> task = client.GetStringAsync("http://www.baidu.com");
+                string text = await task;
+                label.Text = text.Length.ToString();
+            }
+        }
+
+        
     }
 }
