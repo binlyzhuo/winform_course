@@ -10,6 +10,7 @@ namespace LinqDemo
         public string Name { set; get; }
         public int Age { set; get; }
 
+        //
         public bool Gender { set; get; }
     }
 }
