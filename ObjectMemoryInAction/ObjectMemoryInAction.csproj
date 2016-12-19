@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>993ee9d5-ecfc-4a7c-8334-374000ae6e53</ProjectGuid>
+    <ProjectGuid>{8C5B7751-2364-4761-9125-DA479E44ACBC}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ObjectMemoryInAction</RootNamespace>
