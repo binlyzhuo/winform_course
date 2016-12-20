@@ -19,6 +19,7 @@ namespace IOProject
 
             StringInMemoryCache();
             FileStreamAction.Test();
+            FileStreamAction.CopyFile();
             //Console.WriteLine("IO Complete!");
             Console.ReadLine();
         }

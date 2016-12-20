@@ -52,18 +52,19 @@ namespace IOProject
         public static void CopyFile()
         {
             int bufferSize = 10240;
-            string fileName = "d:\\download\\Git-2.10.1-64-bit.exe";
-            string copyName = "d:\\Git-2.10.1-64-bit.exe";
+            string fileName = "d:\\download\\YNote.exe";
+            string copyName = "d:\\YNote.exe";
 
             using (Stream source = new FileStream(fileName, FileMode.Open, FileAccess.Read))
             {
                 using (Stream target = new FileStream(copyName, FileMode.Create, FileAccess.Write))
                 {
-                    byte[] bytes = new byte[bufferSize];
+                    byte[] buffer = new byte[bufferSize];
                     int bytesRead;
                     do
                     {
-                        bytesRead = 0;
+                        bytesRead = source.Read(buffer,0,bufferSize);
+                        target.Write(buffer,0,bytesRead);
                     } while (bytesRead>0);
                 }
             }
