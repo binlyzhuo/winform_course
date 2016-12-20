@@ -12,9 +12,12 @@ namespace IOProject
         static void Main(string[] args)
         {
             //http://www.cnblogs.com/webhome/p/6164139.html
+            //http://blog.jobbole.com/92815/
             Guid g = default(Guid);
             //StringLength();
             StringEncode();
+
+            StringInMemoryCache();
             Console.WriteLine("IO Complete!");
             Console.ReadLine();
         }
@@ -90,6 +93,7 @@ namespace IOProject
 
             bytes = Base64ToBytes(base64);
             Console.WriteLine(Encoding.UTF8.GetString(bytes));
+
         }
 
         static byte[] StringToByte(string str, Encoding encoding)
@@ -135,6 +139,21 @@ namespace IOProject
 
                 return null;
             }
+        }
+
+        static void StringInMemoryCache()
+        {
+            string a = "abcde";
+            string b = "abcde";
+
+            Console.WriteLine(object.ReferenceEquals(a,b));
+
+            string c = "a" + "bc" + "de";
+            Console.WriteLine(object.ReferenceEquals(a,c));
+
+            char[] arr = {'a','b','c','d','e'};
+            string d = new string(arr);
+            Console.WriteLine(object.ReferenceEquals(a,d));
         }
     }
 }
