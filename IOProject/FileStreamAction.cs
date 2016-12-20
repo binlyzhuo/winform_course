@@ -24,6 +24,17 @@ namespace IOProject
                 byte[] bytes = Encoding.UTF8.GetBytes(fileContent);
                 fs.Write(bytes,0,bytes.Length);
             }
+
+            using (FileStream fs = new FileStream(fileName,FileMode.Open))
+            {
+                byte[] bytes = new byte[bufferLength];
+                UTF8Encoding encoding = new UTF8Encoding(true);
+                while (fs.Read(bytes,0,bytes.Length)>0)
+                {
+                    int len = bytes.Length;
+                    Console.WriteLine(encoding.GetString(bytes));
+                }
+            }
         }
 
         static string GetTestString()
