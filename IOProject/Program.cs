@@ -81,6 +81,15 @@ namespace IOProject
             Console.WriteLine(ByteToString(utf8,Encoding.UTF8));
             Console.WriteLine(ByteToString(gb2312,Encoding.GetEncoding("GB2312")));
             Console.WriteLine(ByteToString(unicode,Encoding.Unicode));
+
+
+            string test = "abc";
+            byte[] bytes = Encoding.UTF8.GetBytes(test);
+            string base64 = BytesToBase64(bytes);
+            Console.WriteLine(base64);
+
+            bytes = Base64ToBytes(base64);
+            Console.WriteLine(Encoding.UTF8.GetString(bytes));
         }
 
         static byte[] StringToByte(string str, Encoding encoding)
@@ -101,6 +110,31 @@ namespace IOProject
             }
 
             return encoding.GetString(bytes);
+        }
+
+        static string BytesToBase64(byte[] bytes)
+        {
+            try
+            {
+                return Convert.ToBase64String(bytes);
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
+            }
+        }
+
+        static byte[] Base64ToBytes(string base64)
+        {
+            try
+            {
+                return Convert.FromBase64String(base64);
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
         }
     }
 }
