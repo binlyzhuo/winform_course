@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using Microsoft.SqlServer.Server;
 
 namespace IOProject
 {
@@ -12,7 +13,8 @@ namespace IOProject
         {
             //http://www.cnblogs.com/webhome/p/6164139.html
             Guid g = default(Guid);
-            StringLength();
+            //StringLength();
+            StringEncode();
             Console.WriteLine("IO Complete!");
             Console.ReadLine();
         }
@@ -63,6 +65,42 @@ namespace IOProject
             }
 
             return l;
+        }
+
+        static void StringEncode()
+        {
+            string s = "我是字符串，I am a string!";
+            byte[] utf8 = StringToByte(s,Encoding.UTF8);
+            byte[] gb2312 = StringToByte(s, Encoding.GetEncoding("GB2312"));
+            byte[] unicode = StringToByte(s, Encoding.Unicode);
+
+            Console.WriteLine(utf8.Length);
+            Console.WriteLine(gb2312.Length);
+            Console.WriteLine(unicode.Length);
+
+            Console.WriteLine(ByteToString(utf8,Encoding.UTF8));
+            Console.WriteLine(ByteToString(gb2312,Encoding.GetEncoding("GB2312")));
+            Console.WriteLine(ByteToString(unicode,Encoding.Unicode));
+        }
+
+        static byte[] StringToByte(string str, Encoding encoding)
+        {
+            if (string.IsNullOrEmpty(str))
+            {
+                return null;
+            }
+
+            return encoding.GetBytes(str);
+        }
+
+        static string ByteToString(byte[] bytes, Encoding encoding)
+        {
+            if (bytes == null || bytes.Length == 0)
+            {
+                return string.Empty;
+            }
+
+            return encoding.GetString(bytes);
         }
     }
 }
