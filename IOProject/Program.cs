@@ -18,7 +18,8 @@ namespace IOProject
             StringEncode();
 
             StringInMemoryCache();
-            Console.WriteLine("IO Complete!");
+            FileStreamAction.Test();
+            //Console.WriteLine("IO Complete!");
             Console.ReadLine();
         }
 
