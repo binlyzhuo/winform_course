@@ -48,6 +48,26 @@ namespace IOProject
 
             return builder.ToString();
         }
+
+        public static void CopyFile()
+        {
+            int bufferSize = 10240;
+            string fileName = "d:\\download\\Git-2.10.1-64-bit.exe";
+            string copyName = "d:\\Git-2.10.1-64-bit.exe";
+
+            using (Stream source = new FileStream(fileName, FileMode.Open, FileAccess.Read))
+            {
+                using (Stream target = new FileStream(copyName, FileMode.Create, FileAccess.Write))
+                {
+                    byte[] bytes = new byte[bufferSize];
+                    int bytesRead;
+                    do
+                    {
+                        bytesRead = 0;
+                    } while (bytesRead>0);
+                }
+            }
+        }
     }
 
 
