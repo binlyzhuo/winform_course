@@ -40,6 +40,20 @@ namespace LinqDemo
             var lsGet2 = list.Find(d => d.Gender);
 
             list.ForEach(u=>Console.WriteLine(u.Name));
+
+            IEnumerable<Student> persons = new List<Student>();
+            IEnumerable<Person> student = persons;
+
+            Action<Person> b = (p) =>
+            {
+                Console.WriteLine(p.GetType().Name);
+            };
+
+            b(new Person());
+            b(new Student());
+
+            Action<Student> s = b;
+            s(new Student());
             Console.ReadLine();
         }
 

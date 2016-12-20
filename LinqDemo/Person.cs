@@ -13,4 +13,9 @@ namespace LinqDemo
         //
         public bool Gender { set; get; }
     }
+
+    public class Student:Person
+    {
+        
+    }
 }
