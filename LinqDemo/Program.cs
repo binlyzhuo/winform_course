@@ -57,6 +57,7 @@ namespace LinqDemo
 
 
             LambdaHelper.Test();
+            ExpressionHelper.Test();
             Console.ReadLine();
         }
 
