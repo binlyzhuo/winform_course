@@ -15,10 +15,12 @@ namespace ObjectMemoryInAction
     public class Person
     {
         public int Id;
+        public Nullable<DateTime> endData; 
 
         public void Eat()
         {
             Console.WriteLine("Eat Pear!");
+            endData = null;
         }
     }
 

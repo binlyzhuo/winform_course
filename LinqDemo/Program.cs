@@ -54,6 +54,9 @@ namespace LinqDemo
 
             Action<Student> s = b;
             s(new Student());
+
+
+            LambdaHelper.Test();
             Console.ReadLine();
         }
 
