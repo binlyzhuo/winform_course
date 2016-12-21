@@ -65,7 +65,8 @@ namespace IOProject
                     {
                         bytesRead = source.Read(buffer,0,bufferSize);
                         target.Write(buffer,0,bytesRead);
-                    } while (bytesRead>0);
+                    } 
+                    while (bytesRead>0);
                 }
             }
         }
