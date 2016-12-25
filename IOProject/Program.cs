@@ -15,6 +15,7 @@ namespace IOProject
             //http://blog.jobbole.com/92815/
             //http://www.cnblogs.com/JimmyZheng/archive/2012/03/17/2402814.html
             //http://www.cnblogs.com/JimmyZheng/archive/2012/03/19/2405216.html
+
             Guid g = default(Guid);
             //StringLength();
             StringEncode();
