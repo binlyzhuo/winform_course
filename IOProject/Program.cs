@@ -16,6 +16,8 @@ namespace IOProject
             //http://www.cnblogs.com/JimmyZheng/archive/2012/03/17/2402814.html
             //http://www.cnblogs.com/JimmyZheng/archive/2012/03/19/2405216.html
 
+            //THINKING!!
+
             Guid g = default(Guid);
             //StringLength();
             StringEncode();
