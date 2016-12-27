@@ -17,6 +17,8 @@ namespace Winform_Course
         private int max = 10000;
         public Main()
         {
+			//=========
+			//THINKING!!
             InitializeComponent();
         }
 
