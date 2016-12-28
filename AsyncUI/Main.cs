@@ -18,6 +18,7 @@ namespace AsyncUI
         public delegate string MyDelegate(int ms);
         public Main()
         {
+			//THINKING!!
             InitializeComponent();
         }
 
