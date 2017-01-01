@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Reflection;
@@ -62,7 +63,23 @@ namespace ReflectorDemo
             var strList = guidIds.Select(g => g.ToString());
             var str = string.Join("','", strList);
 
+            GetEnumList();
+
             Console.ReadLine();
+        }
+
+        static void GetEnumList()
+        {
+            //var values = Enum.GetValues(typeof (Fruit));
+            var enumType = typeof (Fruit);
+            var options = from int val in Enum.GetValues(enumType)
+                let field = enumType.GetField(Enum.GetName(enumType, val))
+                let att = field.GetCustomAttributes(typeof (DescriptionAttribute), false).SingleOrDefault()
+                let desc = ((DescriptionAttribute) att).Description
+                select desc;
+
+            var ls = options.ToList();
+
         }
     }
 
@@ -86,4 +103,6 @@ namespace ReflectorDemo
 
     public interface IBaseParam
     { }
+
+    
 }
