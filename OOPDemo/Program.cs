@@ -14,19 +14,29 @@ namespace OOPDemo
 
         public delegate void Feed<in T>(T target);
 
+        /// <summary>
+        /// 泛型委托协变
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public delegate T Find<out T>();
 
         static void Main(string[] args)
         {
             Console.WriteLine("逆变和协变");
+
+            // 数组的协变
             Animal[] dogs = new Dog[]{};
 
+            // 委托协变
             GetAnimal getAnimal = new GetAnimal(GetDog);
             getAnimal();
 
+            // 委托逆变
             FeedDog feedDog = FeedAnimal;
             feedDog(new Dog());
 
+            // 委托泛型逆变
             Feed<Animal> feedAnimalMethod = a => Console.WriteLine("Feed Animal Lambda!");
             Feed<Dog> feedDogMethod = feedAnimalMethod;
             feedDogMethod(new Dog());
@@ -39,10 +49,11 @@ namespace OOPDemo
             Find<Animal> findAnimal = findDog;
             findAnimal();
 
+            // 接口逆变
             IFeedable<Dog> feedDog2 = new FeedImp<Animal>();
             feedDog2.Feed(new Dog());
 
-            // 协变
+            // 接口协变
             IFinder<Animal> findAnimal2 = new Finder<Dog>();
 
             Console.ReadLine();
