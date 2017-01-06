@@ -61,6 +61,8 @@ namespace OOPDemo
             // 接口协变
             IFinder<Animal> findAnimal2 = new Finder<Dog>();
 
+            //
+
             Console.ReadLine();
         }
 
