@@ -12,6 +12,11 @@ namespace OOPDemo
 
         public delegate void FeedDog(Dog dog);
 
+        /// <summary>
+        /// 委托协变
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="target"></param>
         public delegate void Feed<in T>(T target);
 
         /// <summary>
