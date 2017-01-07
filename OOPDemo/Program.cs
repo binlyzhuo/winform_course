@@ -10,6 +10,7 @@ namespace OOPDemo
     {
         public delegate Animal GetAnimal();
 
+		//
         public delegate void FeedDog(Dog dog);
 
         /// <summary>
