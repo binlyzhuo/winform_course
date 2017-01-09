@@ -89,6 +89,10 @@ namespace OOPDemo
         
     }
 
+    /// <summary>
+    /// 接口逆变
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public interface IFeedable<in T>
     {
         void Feed(T t);
