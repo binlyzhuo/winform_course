@@ -30,6 +30,18 @@ namespace ClosePackageConsole
             //Print(capture);
             name = "bin";
             Print(capture);
+
+            List<Func<int>> funcs = new List<Func<int>>();
+            for (int j = 0; j < 10; j++)
+            {
+                int tempJ = j;
+                funcs.Add(()=>tempJ);
+            }
+
+            foreach (var func in funcs)
+            {
+                Console.WriteLine(func());
+            }
             Console.ReadLine();
         }
 
