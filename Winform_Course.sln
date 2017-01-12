@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winform_Course", "Winform_Course\Winform_Course.csproj", "{BD8EB4EE-C8E3-4541-A019-DE375B237AAA}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectMemoryInAction", "ObjectMemoryInAction\ObjectMemoryInAction.csproj", "{8C5B7751-2364-4761-9125-DA479E44ACBC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOPDemo", "OOPDemo\OOPDemo.csproj", "{09DA427E-5AFF-4B66-AFB4-BEE13C47A11E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClosePackageConsole", "ClosePackageConsole\ClosePackageConsole.csproj", "{A940B9C8-7AA1-4861-84E7-9F826A148F34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{09DA427E-5AFF-4B66-AFB4-BEE13C47A11E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09DA427E-5AFF-4B66-AFB4-BEE13C47A11E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09DA427E-5AFF-4B66-AFB4-BEE13C47A11E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A940B9C8-7AA1-4861-84E7-9F826A148F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A940B9C8-7AA1-4861-84E7-9F826A148F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A940B9C8-7AA1-4861-84E7-9F826A148F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A940B9C8-7AA1-4861-84E7-9F826A148F34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
