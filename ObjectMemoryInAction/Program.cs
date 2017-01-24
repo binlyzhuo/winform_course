@@ -9,6 +9,7 @@ namespace ObjectMemoryInAction
     {
         static void Main(string[] args)
         {
+
         }
     }
 
