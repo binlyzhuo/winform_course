@@ -9,7 +9,11 @@ namespace ObjectMemoryInAction
     {
         static void Main(string[] args)
         {
-            DisposeClass ps = new DisposeClass();
+            //DisposeClass ps = new DisposeClass();
+            using (DisposeClass ps = new DisposeClass())
+            {
+
+            }
             Console.ReadLine();
         }
     }
@@ -17,7 +21,7 @@ namespace ObjectMemoryInAction
     public class Person
     {
         public int Id;
-        public Nullable<DateTime> endData; 
+        public Nullable<DateTime> endData;
 
         public void Eat()
         {
