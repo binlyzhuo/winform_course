@@ -9,7 +9,8 @@ namespace ObjectMemoryInAction
     {
         static void Main(string[] args)
         {
-
+            DisposeClass ps = new DisposeClass();
+            Console.ReadLine();
         }
     }
 
