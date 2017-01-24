@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ObjectMemoryInAction
 {
+    //http://www.cnblogs.com/worfdream/articles/2345053.html
     class Program
     {
         static void Main(string[] args)
